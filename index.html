@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Text Extractor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an Image to Extract Text</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Extract Text</button>
+    </form>
+    <div id="result"></div>
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+			const response = await fetch('https://your-backend.onrender.com/extract-text', 
+				{ method: 'POST', body: formData });
+            // const response = await fetch('/extract-text', { method: 'POST', body: formData });
+            const data = await response.json();
+            document.getElementById('result').innerText = data.text || 'Error extracting text';
+        });
+    </script>
+</body>
+</html>
