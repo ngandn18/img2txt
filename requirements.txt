@@ -1,4 +1,5 @@
-flask 
-flask-cors 
-pytesseract 
+flask
+flask-cors
 pillow
+pytesseract
+gunicorn
