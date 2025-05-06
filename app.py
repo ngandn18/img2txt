@@ -38,4 +38,6 @@ def extract_text():
 if __name__ == '__main__':
     os.makedirs('temp', exist_ok=True)
 #    app.run(debug=True)
-    app.run(host="0.0.0.0", port=5000, debug=True)
+
+    PORT = int(os.environ.get("PORT", 5000))  # Use Render's assigned PORT
+    app.run(host="0.0.0.0", port=PORT, debug=True)
