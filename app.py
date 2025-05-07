@@ -32,7 +32,7 @@ def extract_text():
 
         # Perform OCR
         image = Image.open(temp_path)
-        extracted_text = pytesseract.image_to_string(image)
+        extracted_text = pytesseract.image_to_string(image, lang="eng+deu+vie+fra")
 
         # Clean up temporary file
         os.remove(temp_path)
