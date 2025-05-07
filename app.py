@@ -35,6 +35,11 @@ def extract_text():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route("/")
+def home():
+    return "Flask Docker is working!"
+
+
 if __name__ == '__main__':
     os.makedirs('temp', exist_ok=True)
 #    app.run(debug=True)
