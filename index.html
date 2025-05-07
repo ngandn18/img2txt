@@ -54,7 +54,7 @@
         document.getElementById('uploadForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
-            const response = await fetch('https://img2txt-chol.onrender.com:5000/extract-text', { method: 'POST', body: formData });
+            const response = await fetch('https://img2txt-chol.onrender.com/extract-text', { method: 'POST', body: formData });
             const data = await response.json();
             document.getElementById('result').innerText = data.text || 'Error extracting text';
         });
