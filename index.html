@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
             text-align: center;
             padding: 20px;
         }
+
         #result {
             margin-top: 20px;
             padding: 10px;
@@ -19,6 +21,7 @@
             min-height: 50px;
             background-color: #f8f9fa;
         }
+
         button {
             margin: 10px;
             padding: 10px;
@@ -29,6 +32,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Image to Text Extractor</h1>
     <form id="uploadForm" enctype="multipart/form-data">
@@ -40,14 +44,17 @@
     <div id="result"></div>
 
     <!-- Buttons for Copying and Saving -->
-    <button onclick="copyText()">Copy Text</button>
-    <button onclick="saveText()">Save as File</button>
+    <div>
+        <button onclick="copyText()">Copy Text from Image</button>
+        <button onclick="saveText()">Save as File</button>
+    </div>
+
 
     <script>
         document.getElementById('uploadForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
-            const response = await fetch('https://img2txt-bsnj.onrender.com:5000/extract-text', { method: 'POST', body: formData });
+            const response = await fetch('https://img2txt-chol.onrender.com:5000/extract-text', { method: 'POST', body: formData });
             const data = await response.json();
             document.getElementById('result').innerText = data.text || 'Error extracting text';
         });
@@ -75,4 +82,5 @@
         }
     </script>
 </body>
+
 </html>
