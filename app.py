@@ -21,8 +21,14 @@ def extract_text():
             return jsonify({'error': 'No file uploaded'}), 400
         
         # Save the image temporarily
-        temp_path = os.path.join('temp', file.filename)
-        file.save(temp_path)
+        try:
+            temp_path = os.path.join('temp', file.filename)
+            file.save(temp_path)
+            print(f"Image saved at: {temp_path}")
+        except Exception as e:
+            print(f"Error saving image: {str(e)}")
+            return jsonify({'error': 'Failed to save image'}), 500
+
 
         # Perform OCR
         image = Image.open(temp_path)
