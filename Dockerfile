@@ -5,6 +5,7 @@ FROM python:3.9-slim
 RUN apt-get update && apt-get install -y tesseract-ocr
 
 # Set the working directory
+RUN mkdir -p /app/temp && chmod -R 777 /app/temp
 WORKDIR /app
 
 # Copy the requirements file
