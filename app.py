@@ -11,7 +11,7 @@ CORS(app)
 
 # Set the path to Tesseract executable (adjust based on your system)
 # pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
+pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
 
 @app.route('/extract-text', methods=['POST'])
 def extract_text():
