@@ -13,8 +13,10 @@
     <h1>Image to Text Extractor</h1>
     <form id="uploadForm" enctype="multipart/form-data">
         <!-- <input type="file" name="image" accept="image/*" required> -->
-        <input type="file" id="imageInput" name="image" accept="image/*" capture="environment">
-        <button type="button" onclick="captureImage()">Use Camera</button>
+        <div>
+            <input type="file" id="imageInput" name="image" accept="image/*" capture="environment">
+            <button type="button" onclick="captureImage()">Use Camera</button>
+        </div>
         <button type="submit">Extract Text</button>
     </form>
 
@@ -34,7 +36,7 @@
             e.preventDefault();
             const formData = new FormData(e.target);
             const response = await fetch('http://localhost:5000/extract-text',
-            // const response = await fetch('http://<internet ip address>:5000/extract-text',
+                // const response = await fetch('http://<internet ip address>:5000/extract-text',
                 { method: "POST", body: formData });
             const data = await response.json();
             document.getElementById("result").innerText = data.text || "Error extracting text";
