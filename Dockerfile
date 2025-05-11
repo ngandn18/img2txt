@@ -2,10 +2,10 @@
 FROM python:3.9-slim
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y tesseract-ocr
+RUN apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-vie tesseract-ocr-deu tesseract-ocr-fra
 
+RUN mkdir -p /app/temp && chmod 1777 /app/temp
 # Set the working directory
-RUN mkdir -p /app/temp && chmod -R 777 /app/temp
 WORKDIR /app
 
 # Copy the requirements file
