@@ -1,17 +1,31 @@
 // Function to Copy Text (optimized for mobile)
 function copyText() {
-    const text = document.getElementById("result").innerText;
+    const resultDiv = document.getElementById("result");
+    const text = resultDiv.innerText;
 
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-            alert("Text copied successfully!");
-        }).catch(err => {
-            console.error("Error copying:", err);
-        });
-    } else {
-        alert("Copy function not supported on this device.");
-    }
+    const tempInput = document.createElement("textarea");
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+    alert("Text copied successfully!");
 }
+
+// function copyText() {
+//     const text = document.getElementById("result").innerText;
+
+//     if (navigator.clipboard) {
+//         navigator.clipboard.writeText(text).then(() => {
+//             alert("Text copied successfully!");
+//         }).catch(err => {
+//             console.error("Error copying:", err);
+//         });
+//     } else {
+//         alert("Copy function not supported on this device.");
+//     }
+// }
 
 // Function to Save Text (works on mobile & PC)
 function saveText() {
