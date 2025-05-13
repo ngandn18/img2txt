@@ -13,11 +13,11 @@
     <h1>Image to Text Extractor</h1>
     <form id="uploadForm" enctype="multipart/form-data">
         <!-- <input type="file" name="image" accept="image/*" required> -->
-        <div>
-            <!-- <input type="file" id="imageInput" name="image" accept="image/*" capture="environment"> -->
-            <input type="file" id="imageInput" name="image" accept="image/*" capture="environment" onchange="processCameraImage(event)">
-            <button type="button" onclick="captureImage()">Use Camera</button>
-        </div>
+        <input type="file" id="imageInput" name="image" accept="image/*" capture="environment">
+        <!-- <input type="file" id="imageInput" name="image" accept="image/*" capture="environment"
+            onchange="processCameraImage(event)"> -->
+        <button type="button" onclick="captureImage()">Use Camera</button>
+
         <button type="submit">Extract Text</button>
     </form>
 
