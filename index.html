@@ -17,7 +17,6 @@
         <!-- <input type="file" id="imageInput" name="image" accept="image/*" capture="environment"
             onchange="processCameraImage(event)"> -->
         <button type="button" onclick="captureImage()">Use Camera</button>
-
         <button type="submit">Extract Text</button>
     </form>
 
@@ -34,7 +33,7 @@
             document.getElementById("result").innerText = "Please wait ..."
             e.preventDefault();
             const formData = new FormData(e.target);
-            const response = await fetch('http://159.223.95.162:5000/extract-text',
+            const response = await fetch('http://170.64.185.148:5000/extract-text',
                 // const response = await fetch('http://<internet ip address>:5000/extract-text',
                 { method: "POST", body: formData });
             const data = await response.json();
